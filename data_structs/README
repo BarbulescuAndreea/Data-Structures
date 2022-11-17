@@ -1,0 +1,4 @@
+Am creat functiile ajutatoare: create, insert intr o lista de tip node, functii pt stack, apoi 
+visitNR, functie pe care am modificat o astfel incat sa verifice daca intr un graf exista
+cicluri sau este aciclic. Apoi in main pentru cerinta 1, am adaugat in grap nodurile corespunzatoare,
+am format graful, apoi am verificat daca este ciclic sau aciclic. 
