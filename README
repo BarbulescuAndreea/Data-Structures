@@ -1,0 +1,53 @@
+Inceput: am creat structura care sa contina campurile culoare numar si next.
+Am facut initializarea listei, pentru a putea crea pachetul cerut, 
+incepand de la A pana la 2, cu toate caracteristicile fiecaruia.
+m am folosit de functia insert intr o lista simplu inlantuia pt a 
+face functia de initializare.
+am creat si functie de eliberare a memoriei.
+pt amestecarea cartilor, cand am avut de facut inversarea lor, 
+m am folosit de functia de inserare la inceput pentru a schimba
+ordinea primei carti cu ultima.
+la nPiles, am calculat dimensiunea subpachetului, si am pus in fiecare subpachet
+folosindu ma de un vector de liste (vlist), apoi am pus intr un vector de liste 
+nou , elementele in ordinea in care se primesc la intrare. la final, am 
+pus totul intr o lista noua folosindu ma de insert.
+am facut functia write list pentru a putea scrie la iesire pachetul 
+in forma ceruta, adica fiecarui numar sa i fie asociata litera 
+corespunzatoare.
+la split: am impartit pachetul in doua pachete egale, folosindu ma de 
+functia length, apoi am folosit o celula santinela, am verificat 
+cazurile in care una dintre liste ar fi fost null, iar la final am 
+pus totul in functie de aux pe care l am facut sa pointeze la celula
+santinela.
+la mongean: am luat primul element din lista, apoi in functie de 
+indicele par sau impar al elementului din pachetul raman, am inserat
+la sfarsit in lista noua sau la inceput. 
+la jocul de carti Razboi, am luat pe rand fiecare pas. 
+am dat fiecarui jucator cate o jumatate de pachet, am verificat cazul 
+in care castigatorul se determina dupa 100 de maine si am folosit 
+un vector de frecventa. am inceput jocu: am verificat cele 3 cazuri: 
+daca cartea primului jucator este mai mare, atunci am adaugat la 
+sfarsitul cartilor sale ultimele doua carti date jos : una a lui si 
+cealalta a adversarului. am verificat cazul in care nu mai are carti,
+si asta inseamna ca unul dintre ei a castigat. apoi pe cazul in care 
+al doilea are cartea mai mare decat primul, am facut aceleasi lucruri. 
+in caz de egalitate(Razboi) am calculat nr ul de carti intoarse folosindu ma 
+de o functie de minim. m am folosit de 2 liste auxiliare(copie 1 si 
+copie 2) ca sa imi tina elementul ultim care a fost dat jos din pachet 
+de catre fiecare jucator. apoi in functie de cel care a dat cartea cea mai 
+mare, a inceput inserarea(cea mai grea parte :)) ). m am folosit de o 
+noua lista (temp) care sa imi tina mereu urmatoarea valoare din lista jucatorului
+(doi -> next sau unu -> next); ex: am pus prima data cartea cu care 
+s a castigat, apoi dupa ea am pus prima carte de jos, apoi in fata ei am 
+pus cartile ramase in mana si intre cartea cu care s a castigat 
+si prima carte, le am pus pe cele care au fost date jos, de la sfarsit
+catre inceput. dupa ce am facut asta, am pus si cartile celuilalt jucator 
+dupa aceiasi idee: cartea cu care a castigat , cartea prima data jos,
+apoi intre cele doua, le am pus pe cele date jos de el in ordine inversa.
+am pus totul intr un ciclu while pentru ca jocul sa poata avea loc de mai multe 
+ori. iar la final, in functie de castigator am returnat numarul sau: 1 sau 2 si cartea
+cu care a castigat. 
+
+in main, am deschis fisierul pentru a putea citi din el ce se introduce, am scris 
+in el pentru fiecare caz de amestecare si de joc in functie de ceea ce trebuie facut, apoi
+l am inchis. 
