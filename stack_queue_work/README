@@ -1,101 +1,71 @@
-Voi explica intai functiile ajutatoare pe care le-am creat:
 
-functia creatnode - am creat un nod, in care am initializat
-campurile sale cu valorile corespunzatoare.
+hire - I checked if the tree is NULL, if it is not,
+I put in found the manager I need. in newnode
+I have the new employee that needs to be added to the hierarchy. I did
+the necessary links for newnode to have found as manager,
+and found to have a child on newnode. in the end, I did bubblesort
+in found(manager) for his employees to be ordered.
 
-functia Tsearch - functie care imi cauta un anumit angajat
-dupa numele sau.
+wires - I kept the right employee in the "current" variable
+fired. I divided the situation into 3 cases:
+case 1- where it currently has no employees, and in which position
+he is currently in his manager's team vector, I did
+NULL and I released the currently occupied memory.
+case 2 - current has an employee. I put on the position that
+he was current with his manager, his employee, and I did
+the connection and that his current employee now has the new one
+manager. finally, I released the current memory and ordered
+employees in the team vector of the manager ("boss").
+case 3- current has >= two employees/children. I put
+his children are currently at his boss, I reallocated the memory for the boss,
+and I increased direct_employees_no, I freed the memory for the current si
+I ordered the employees for his current manager.
 
-functiile pt Queue- le am folosit pentru parcurgerea pe nivel.
+promote - I verified that the employee is at least level 2, checking
+if current->manager->manager is NULL or not. we shared
+again on 2 cases:
+case 1 - if the current one has no children, I took the current one too
+I put it to the manager's manager, I made the connections, I did
+NULL on the current position with the former manager, then I have
+ordered the employees for the manager's manager.
+case 2- if the current one has employees/children, I put the team
+the promoted employee in his manager's team, I reassigned
+the memory for his current manager and the manager to whom he has to go
+put on the current, I inserted it on the current, and I made the order
+for his current manager and for the manager's manager. finally,
+I freed the memory for current->team.
 
-functiile pt Stack - le am folosit pentru parcurgerea in adancime, 
-in functia preordertraversal care trebuia implementanta la 
-inceputul tuturor. 
+move_employee - newboss - to whom should I move the current one.
+I checked again the cases in which the current has or does not have employees.
+if he has no employees, I simply moved him. if he has employees,
+his team went under the management of the current manager, I redid it
+I reassigned all the necessary links from the team to the manager and vice versa
+the team vectors for newboss and for exboss, I increased them direct_employees_no,
+and then I ordered where necessary.
 
-functia printTree - functie care realizeaza parcurgerea pe 
-nivel a unui arbore N-ary.
+move_team - I made NULL on the current position before
+to be moved, then I contacted newboss. finally, I ordered
+newboss's team vector.
 
-functia destroyNode - elibereaza toata memoria utilizata de 
-un nod, impreuna cu copiii sai si numele sau.
+fire_team - for this function, I found the position it is on
+current to its manager, and I made a NULL, then I freed the memory
+allocated for this node.
 
-functia Bubblesort - am folosit acest tip de sortare pt 
-a sorta numele angajatilor in tree in ordine alfabetica. Am 
-implementat algoritmul de sortare, apoi am pus in team pe fiecare
-pozitie, ceea ce era in v_aux pe pozitia respectiva, v_aux fiind acum
-sortat, si am eliberat memoria. pe pozitiile cu NULL le am pus la finalul
-vectorului, ca sa nu existe gauri in vector in cazul in care 
-un angajat a fost scos si a ramas NULL. 
+get_employees_by_manager - I used for this function, browsing
+per level, and I used an aux vector in which I kept from position 0
+the manager and his employees. on position 0 of the vector is
+even the manager. finally I released the aux.
 
-Acum functiile de implementat:
+get_employees_by_level - for this function I used
+a helper function (getlevel) that determines the level of an employee.
+then I also used an aux vector, which would hold the positions
+his employees at the same level. I sorted the elements in the vector,
+then I displayed them in the file and freed the memory for aux.
 
-hire - am verificat cazul in care tree este NULL, daca nu este, 
-am pus in found managerul de care am nevoie. in newnode 
-am noul angajat care trebuie adaugat in ierarhie. am facut
-legaturile necesare pentru ca newnode sa l aiba manager pe found,
-iar found sa il aiba copil pe newnode. in final, am facut bubblesort 
-in found(manager) pt ca angajatii sai sa fie ordonati.
+get_best_manager - we used a helper function that determines
+the number of employees. i used level parking, an aux vector,
+in which I put the manager with the most employees, and in case
+there are more with the same number of employees, I have displayed them all.
 
-fire - am pastrat in variabila "current" angajatul care trebuie 
-concediat. am impartit situatia in 3 cazuri: 
-cazul 1- in care current nu are angajati, iar pe pozitia pe care
-se afla current in vectorul de team al managerului sau, am facut
-NULL si am eliberat memoria ocupata de current.
-cazul 2 - current are un angajat. am pus pe pozitia pe care 
-era current la managerul sau, pe angajatul sau, si am facut 
-legatura si ca angajatul lui current sa l aiba acum pe noul
-manager. in final, am eliberat memoria pt current si am ordonat
-angajatii in vectorul de team al managerului("boss").
-cazul 3- current are >= de doi angajati/copii. am pus 
-copiii lui current la boss-ul lui, am realocat memoria pt boss, 
-i am marit direct_employees_no, am eliberat memoria pt current si 
-am ordonat angajatii pt managerul lui current.
-
-promote - am verificat ca angajatul sa fie minim pe nivelul 2, verificand
-daca current->manager->manager este NULL sau nu. am impartit
-din nou pe 2 cazuri:
-cazul 1- daca current nu are copii, l am luat pe current si 
-l am pus la managerul managerului, am facut legaturile, am facut
-NULL pe pozitia pe care era current la managerul fost, apoi am 
-ordonat angajatii pt managerul managerului.
-cazul 2- daca current are angajati/copii, am pus team-ul 
-angajatului promovat in echipa managerului sau, am reallocat
-memoria pt managerul lui current si managerul la care trebuie sa l
-pun pe current, l am inserat pe current , si am facut ordonare 
-pentru managerului lui current si pt managerul managerului.in final,
-am eliberat memoria pt current->team.
-
-move_employee - newboss - la cine trebuie sa l mut pe current.
-am verificat din nou cazurile in care current are sau nu angajati.
-daca nu are angajati, l am mutat pur si simplu pe el. daca are angajati,
-echipa lui a trecut sub conducerea managerului current, am refacut
-toate legaturile necesare de la echipa catre manager si invers, am realocat
-vectorii de team pt newboss si pt exboss, le am marit direct_employees_no,
-iar apoi am ordonat unde a fost necesar.
-
-move_team - am facut NULL pe pozitia pe care se afla current inainte 
-sa fie mutat, apoi am facut legatura cu newboss. in final, am ordonat
-vectorul de team al lui newboss. 
-
-fire_team - pentru aceasta functie, am gasit pozitia pe care se afla 
-current la managerul sau, si am facut o NULL, apoi am eliberat memoria
-alocata pt acest nod.
-
-get_employees_by_manager - am folosit pt aceasta functie, parcurgerea
-pe nivel, si am folosit un vector aux in care am tinut de pe pozitia 0
-managerul si angajatii sai. pe pozitia 0 a vectorului se afla 
-chiar managerul. in final am eliberat aux.
-
-get_employees_by_level - pentru aceasta functie m am folosit de 
-o functie ajutatoare(getlevel) care determina nivelul unui angajat. 
-apoi am folosit tot un vector aux, care sa tina pe pozitiile 
-sale angajatii de pe acelasi nivel. am sortat elementele din vector,
-apoi i am afisat in fisier si am eliberat memoria pt aux.
-
-get_best_manager - am folosit o functie ajutatoare care determina
-numarul de angajati. am folosit parcugerea pe nivel, un vector aux,
-in care am pus managerul cu cei mai multi angajati, iar in caz ca 
-sunt mai multi cu acelasi nr de angajati, i am afisat pe toti.
-
-destroy_node - am folosit o parcurgere in adancime, in care am distrus
-pe rand fiecare nod. 
-
+destroy_node - I used a deep traversal, where I destroyed
+each node in turn.
