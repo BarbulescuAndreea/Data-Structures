@@ -1,53 +1,55 @@
-Inceput: am creat structura care sa contina campurile culoare numar si next.
-Am facut initializarea listei, pentru a putea crea pachetul cerut, 
-incepand de la A pana la 2, cu toate caracteristicile fiecaruia.
-m am folosit de functia insert intr o lista simplu inlantuia pt a 
-face functia de initializare.
-am creat si functie de eliberare a memoriei.
-pt amestecarea cartilor, cand am avut de facut inversarea lor, 
-m am folosit de functia de inserare la inceput pentru a schimba
-ordinea primei carti cu ultima.
-la nPiles, am calculat dimensiunea subpachetului, si am pus in fiecare subpachet
-folosindu ma de un vector de liste (vlist), apoi am pus intr un vector de liste 
-nou , elementele in ordinea in care se primesc la intrare. la final, am 
-pus totul intr o lista noua folosindu ma de insert.
-am facut functia write list pentru a putea scrie la iesire pachetul 
-in forma ceruta, adica fiecarui numar sa i fie asociata litera 
-corespunzatoare.
-la split: am impartit pachetul in doua pachete egale, folosindu ma de 
-functia length, apoi am folosit o celula santinela, am verificat 
-cazurile in care una dintre liste ar fi fost null, iar la final am 
-pus totul in functie de aux pe care l am facut sa pointeze la celula
-santinela.
-la mongean: am luat primul element din lista, apoi in functie de 
-indicele par sau impar al elementului din pachetul raman, am inserat
-la sfarsit in lista noua sau la inceput. 
-la jocul de carti Razboi, am luat pe rand fiecare pas. 
-am dat fiecarui jucator cate o jumatate de pachet, am verificat cazul 
-in care castigatorul se determina dupa 100 de maine si am folosit 
-un vector de frecventa. am inceput jocu: am verificat cele 3 cazuri: 
-daca cartea primului jucator este mai mare, atunci am adaugat la 
-sfarsitul cartilor sale ultimele doua carti date jos : una a lui si 
-cealalta a adversarului. am verificat cazul in care nu mai are carti,
-si asta inseamna ca unul dintre ei a castigat. apoi pe cazul in care 
-al doilea are cartea mai mare decat primul, am facut aceleasi lucruri. 
-in caz de egalitate(Razboi) am calculat nr ul de carti intoarse folosindu ma 
-de o functie de minim. m am folosit de 2 liste auxiliare(copie 1 si 
-copie 2) ca sa imi tina elementul ultim care a fost dat jos din pachet 
-de catre fiecare jucator. apoi in functie de cel care a dat cartea cea mai 
-mare, a inceput inserarea(cea mai grea parte :)) ). m am folosit de o 
-noua lista (temp) care sa imi tina mereu urmatoarea valoare din lista jucatorului
-(doi -> next sau unu -> next); ex: am pus prima data cartea cu care 
-s a castigat, apoi dupa ea am pus prima carte de jos, apoi in fata ei am 
-pus cartile ramase in mana si intre cartea cu care s a castigat 
-si prima carte, le am pus pe cele care au fost date jos, de la sfarsit
-catre inceput. dupa ce am facut asta, am pus si cartile celuilalt jucator 
-dupa aceiasi idee: cartea cu care a castigat , cartea prima data jos,
-apoi intre cele doua, le am pus pe cele date jos de el in ordine inversa.
-am pus totul intr un ciclu while pentru ca jocul sa poata avea loc de mai multe 
-ori. iar la final, in functie de castigator am returnat numarul sau: 1 sau 2 si cartea
-cu care a castigat. 
+Implemented Game: War with playcards
 
-in main, am deschis fisierul pentru a putea citi din el ce se introduce, am scris 
-in el pentru fiecare caz de amestecare si de joc in functie de ceea ce trebuie facut, apoi
-l am inchis. 
+
+beginning: I created the structure to contain the color, number and next fields.
+I initialized the list, to be able to create the required package,
+starting from A to 2, with all the characteristics of each.
+I used the insert function in a simple chain list for a
+performs the initialization function.
+I also created a memory release function.
+for mixing the cards, when I had to reverse them,
+I used the insert function at the beginning to change
+the order of the first book with the last.
+
+at nPiles, I calculated the size of the subpackage, and put in each subpackage
+using a vector of lists (vlist), then I put in a vector of lists
+again, the elements in the order in which they are received at the entrance. in the end, i have
+put everything in a new list using insert ma.
+I made the write list function to be able to write the package at the output
+in the required form, that is, each number should be associated with a letter
+corresponding to.
+
+to split: I split the package into two equal packages, using ma de
+length function, then I used a sentinel cell, I checked
+the cases in which one of the lists would have been null, and at the end I have
+put everything according to the aux that I made to point to the cell
+sentinel.
+
+to Mongean: I took the first element from the list, then depending on
+the even or odd index of the element in the package remains, I inserted
+at the end of the new list or at the beginning.
+in the War card game, I took each step in turn.
+I gave each player half a pack, I checked the case
+in which the winner is determined after 100 tomorrows and I used
+a frequency vector. I started the game: I checked the 3 cases:
+if the first player's card is higher, then I added to
+the end of his books, the last two books given down: one of his and
+the other of the opponent. I checked in case he doesn't have any more books,
+and that means one of them won. then on the case where
+the second has a bigger book than the first, I did the same things.
+in case of a tie (War) I calculated the number of cards turned using ma
+of a minimum function. I used 2 auxiliary lists (copy 1 and
+copy 2) to hold the last item that was removed from the package
+by each player. then depending on the one who gave the most card
+great, the insertion has begun (the hardest part :)) ). I used o
+the new list (temp) that will always hold the next value from the player's list
+(two -> next or one -> next); ex: I first put the book with which
+s won, then after her I put the first card from the bottom, then in front of her I have
+put the remaining cards in his hand between the card with which he won
+and the first book, I put the ones that were taken down, from the end
+towards the beginning. after doing this, I also put the other player's cards
+according to the same idea: the card with which he won, the first down card,
+then between the two, I put the ones he gave down in reverse order.
+I put everything in a while cycle so that the game can take place several times
+times. and at the end, depending on the winner, I returned his number: 1 or 2 and the book
+with which he won.
