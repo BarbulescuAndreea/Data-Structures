@@ -1,0 +1,35 @@
+Functii:
+    touch- Daca lista de fisiere este goala, fisierul se insereaza primul
+          si se fac legaturile cu parent. Daca fisierul are acelasi nume cu un fisier/director deja
+          existent, nu se mai insereaza. Am facut aceasta verificare parcurgand pe rand lista de directoare
+          si de fisiere cu un auxiliar "currentFile" sau "currentDir". La final, daca s au satisfacut toate
+          conditiile de inserare, il inserez in lista de fisiere folosindu-ma de un auxiliar aux.
+    mkdir - exact acelasi procedeu ca la touch, doar ca aplicat acum pentru un director, si inserarea se face
+          in lista de directoare acum.
+    ls -  am parcurs intai lista de directoare si am afisat toate directoarele in ordinea lor pana cand 
+          listaDirectoare se goleste(devine NULL), apoi am procedat la fel si pentru lista de fisiere(listaFisiere).
+    rm -  Daca fisierul care trebuie sters nu exista, atunci functia returneaza "Could not find the file". apoi
+          am facut 3 verificari: daca cel care trebuie sters este primul, m am folosit de un fisier auxiliar aux
+          care ia valoarea fisierului ce trebuie sters, apoi inceputul "head_children_files" devine urmatorul, si 
+          se elibereaza memoria pentru aux. Daca cel ce trebuie sters este al doilea, am folosit un fisier prev 
+          ce reprezinta fisierul de dinaintea celui ce trebuie sters, si i am setat next-ul la next->next. In final,
+          daca nu trebuie sters nici primul nici al doilea, am parcurs cu un current lista de fisiere si cand l am 
+          gasit pe cel ce trebuie sters, am facut acelasi procedeu pentru prev(prev->next = prev->next->next), unde 
+          prev este precendentul lui current.
+    rmdir - acelasi procedeu ca pentru "rm" doar ca acum am verificat si daca continutul directorului care trebuie sters
+          are alte fisiere/directoare inauntru, iar in acest caz le-am sters si pe acestea din interiorul sau.
+    cd -  daca se doreste schimbarea directorului in directorul anterior(cd ..) am schimbat directorul curent 
+          la directorul sau parinte. Daca se doreste schimbarea din directorul curent intr un direct din interiorul
+          acestuia, atunci se cauta directorul prin lista de directoare a directorului curent, iar daca nu este gasit,
+          se afiseaza mesajul "No directories found!", iar daca este gasit(isFound = 1), acesta este retinut intr-un 
+          "current" iar target devine acum "current".
+    pwd - am folosit siruri de caractere pentru afisarea mesajului, initial mi se afisa de la sfarsit la inceputul
+          asa ca a fost nevoie sa folosesc o copie pe care sa o modelez facand swap intre cuvinte pentru a-mi 
+          rezulta la final afisarea dorita.
+    tree - m am folosit de o functie ajutatoare "printTree" care in functie de nivel, imi pune spatii la afisare
+           (printf("    "* nivel)) si apoi afiseaza directorul/fisierul ce trebuie afisat.
+           functia tree este implementata recursiv, pentru fiecare director curent, se afiseaza
+           directorul curent apoi subdirectoarele si fisiere sale.
+    stop - functie de eliberare a memoriei pentru fiecare fisier, director si subdirectoarele/subfisierele sale
+    main - am citit de la tastatura cu ajutorul unui sir "str" mesajul, apoi l am despartit in comanda si daca era 
+           necesar, si in nume, apoi pt fiecare comanda am apelat functia corespunzatoare.
